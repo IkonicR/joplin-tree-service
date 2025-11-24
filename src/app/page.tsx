@@ -23,38 +23,111 @@ import { WithContext, LocalBusiness } from "schema-dts";
 
 const businessSchema: any = {
   "@context": "https://schema.org",
-  "@type": "TreeService", // More specific than LocalBusiness
-  "name": COMPANY_NAME,
-  "image": "https://joplinmotreeservice.com/assets/joplin-tree-hero-main.jpg",
-  "telephone": PHONE_NUMBER,
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Joplin",
-    "addressRegion": "MO",
-    "postalCode": "64801",
-    "addressCountry": "US"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 37.0842,
-    "longitude": -94.5133
-  },
-  "url": "https://joplinmotreeservice.com",
-  "priceRange": "$$",
-  "openingHoursSpecification": [
+  "@graph": [
     {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-      "opens": "07:00",
-      "closes": "19:00"
+      "@type": "TreeService", // More specific than LocalBusiness
+      "name": COMPANY_NAME,
+      "image": "https://joplinmotreeservice.com/assets/joplin-tree-hero-main.jpg",
+      "telephone": PHONE_NUMBER,
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Joplin",
+        "addressRegion": "MO",
+        "postalCode": "64801",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 37.0842,
+        "longitude": -94.5133
+      },
+      "url": "https://joplinmotreeservice.com",
+      "priceRange": "$$",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          "opens": "07:00",
+          "closes": "19:00"
+        }
+      ],
+      "areaServed": [
+        { "@type": "City", "name": "Joplin" },
+        { "@type": "City", "name": "Webb City" },
+        { "@type": "City", "name": "Carl Junction" },
+        { "@type": "City", "name": "Oronogo" },
+        { "@type": "City", "name": "Carterville" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much does tree removal cost in Joplin?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The cost varies based on height, diameter, and location. Small trees might be $300–$600, while large, hazardous Oaks can range from $1,200+. We provide Free On-Site Estimates to give you an exact, guaranteed price."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are you licensed and insured?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, absolutely. We carry full general liability insurance and workman’s compensation to protect you from liability."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you haul away the debris and wood?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Our standard quote includes cleanup and haul-away. We chip brush, remove logs, and rake the area clean."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need a permit for tree removal in Joplin?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Generally, no permit is needed for private property. City approval may be required for trees in the Right of Way or historic districts."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How fast can you get here for an emergency?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For emergencies, we dispatch immediately, 24/7. For standard estimates, we usually schedule same-day or next-day appointments."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you service areas outside of Joplin?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! We serve all of Jasper and Newton counties, including Webb City, Carl Junction, Oronogo, Carterville, Duquesne, and Neosho."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you grind the stump immediately?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We operate our own stump grinding machinery and can grind 6–12 inches below grade immediately after removal."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will you ruin my yard with heavy trucks?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We take extreme care to protect your lawn using plywood mats and cranes to lift logs over your house rather than dragging them."
+          }
+        }
+      ]
     }
-  ],
-  "areaServed": [
-    { "@type": "City", "name": "Joplin" },
-    { "@type": "City", "name": "Webb City" },
-    { "@type": "City", "name": "Carl Junction" },
-    { "@type": "City", "name": "Oronogo" },
-    { "@type": "City", "name": "Carterville" }
   ]
 };
 
@@ -353,21 +426,58 @@ export default function Home() {
               <h2 className="text-3xl font-black text-stone-900 mb-12 text-center uppercase">Frequently Asked Questions</h2>
               <Accordion type="single" collapsible className="w-full">
                  <AccordionItem value="item-1" className="border-b-stone-200">
-                    <AccordionTrigger className="text-lg font-bold text-stone-900 hover:text-green-800">How much does tree removal cost?</AccordionTrigger>
+                    <AccordionTrigger className="text-lg font-bold text-stone-900 hover:text-green-800 text-left">How much does tree removal cost in Joplin?</AccordionTrigger>
                     <AccordionContent className="text-stone-600 text-base leading-relaxed p-4 bg-stone-50">
-                       The cost of tree removal varies depending on the size, location, and condition of the tree. We provide <strong>Free On-Site Estimates</strong> to give you an exact price before we start. We pride ourselves on offering competitive, affordable rates for Joplin homeowners.
+                       The cost varies based on height, diameter, and location (e.g., proximity to your house). Small trees might be $300–$600, while large, hazardous Oaks can range from $1,200+. We provide <strong>Free On-Site Estimates</strong> to give you an exact, guaranteed price before we start.
                     </AccordionContent>
                  </AccordionItem>
+
                  <AccordionItem value="item-2" className="border-b-stone-200">
-                    <AccordionTrigger className="text-lg font-bold text-stone-900 hover:text-green-800">Do I need a permit in Joplin?</AccordionTrigger>
+                    <AccordionTrigger className="text-lg font-bold text-stone-900 hover:text-green-800 text-left">Are you licensed and insured?</AccordionTrigger>
                     <AccordionContent className="text-stone-600 text-base leading-relaxed p-4 bg-stone-50">
-                       Generally, no permit is needed for private property. However, if the tree is in the "Right of Way" (between sidewalk and street) or you are in a historic district, city approval may be required. We handle this check for you.
+                       <strong>Yes, absolutely.</strong> We carry full general liability insurance and workman’s compensation. This is critical—if you hire an uninsured trimmer and they get hurt on your property, <em>you</em> could be liable. We are happy to show proof of insurance before starting any job.
                     </AccordionContent>
                  </AccordionItem>
+
                  <AccordionItem value="item-3" className="border-b-stone-200">
-                    <AccordionTrigger className="text-lg font-bold text-stone-900 hover:text-green-800">Will you ruin my yard?</AccordionTrigger>
+                    <AccordionTrigger className="text-lg font-bold text-stone-900 hover:text-green-800 text-left">Do you haul away the debris and wood?</AccordionTrigger>
                     <AccordionContent className="text-stone-600 text-base leading-relaxed p-4 bg-stone-50">
-                       Absolutely not. We use plywood mats to disperse the weight of our equipment and use cranes to lift logs <em>over</em> your lawn, not drag them across it. Your yard will look cleaner than when we arrived.
+                       Yes. Our standard quote includes "cleanup and haul-away." We chip the brush, remove the logs, and rake the area clean. Your yard will often look better than when we arrived. If you prefer to keep the wood for firewood, let us know, and we can stack it for a reduced rate.
+                    </AccordionContent>
+                 </AccordionItem>
+
+                 <AccordionItem value="item-4" className="border-b-stone-200">
+                    <AccordionTrigger className="text-lg font-bold text-stone-900 hover:text-green-800 text-left">Do I need a permit for tree removal in Joplin?</AccordionTrigger>
+                    <AccordionContent className="text-stone-600 text-base leading-relaxed p-4 bg-stone-50">
+                       Generally, no permit is needed for trees on private property. However, if the tree is in the "Right of Way" (between the sidewalk and street) or you are in a historic district, city approval may be required. We handle this check for you to ensure compliance.
+                    </AccordionContent>
+                 </AccordionItem>
+
+                 <AccordionItem value="item-5" className="border-b-stone-200">
+                    <AccordionTrigger className="text-lg font-bold text-stone-900 hover:text-green-800 text-left">How fast can you get here for an emergency?</AccordionTrigger>
+                    <AccordionContent className="text-stone-600 text-base leading-relaxed p-4 bg-stone-50">
+                       For emergencies (tree on house, driveway blocked), we dispatch <strong>immediately</strong>, 24/7. For standard estimates, we usually schedule same-day or next-day appointments.
+                    </AccordionContent>
+                 </AccordionItem>
+
+                 <AccordionItem value="item-6" className="border-b-stone-200">
+                    <AccordionTrigger className="text-lg font-bold text-stone-900 hover:text-green-800 text-left">Do you service areas outside of Joplin?</AccordionTrigger>
+                    <AccordionContent className="text-stone-600 text-base leading-relaxed p-4 bg-stone-50">
+                       Yes! We serve all of Jasper and Newton counties. This includes Webb City, Carl Junction, Oronogo, Carterville, Duquesne, and Neosho.
+                    </AccordionContent>
+                 </AccordionItem>
+
+                 <AccordionItem value="item-7" className="border-b-stone-200">
+                    <AccordionTrigger className="text-lg font-bold text-stone-900 hover:text-green-800 text-left">Can you grind the stump immediately?</AccordionTrigger>
+                    <AccordionContent className="text-stone-600 text-base leading-relaxed p-4 bg-stone-50">
+                       Yes. We operate our own stump grinding machinery. We grind 6–12 inches below grade, destroying the root ball so you can replant grass or pave over the area immediately.
+                    </AccordionContent>
+                 </AccordionItem>
+
+                 <AccordionItem value="item-8" className="border-b-stone-200">
+                    <AccordionTrigger className="text-lg font-bold text-stone-900 hover:text-green-800 text-left">Will you ruin my yard with heavy trucks?</AccordionTrigger>
+                    <AccordionContent className="text-stone-600 text-base leading-relaxed p-4 bg-stone-50">
+                       We take extreme care to protect your lawn. We use plywood mats to disperse the weight of our equipment, and for backyard removals, we often use cranes to lift logs <em>over</em> your house rather than dragging them across your grass.
                     </AccordionContent>
                  </AccordionItem>
               </Accordion>
