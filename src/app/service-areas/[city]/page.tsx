@@ -119,7 +119,7 @@ export default async function ServiceAreaPage({ params }: Props) {
                     Unlike out-of-town storm chasers, we are rooted in the Joplin metro area. We know the specific challenges homeowners in <strong>{data.name}</strong> face, from the soil conditions near {data.landmarks[0]} to the wind patterns affecting mature oaks.
                  </p>
                  <p className="text-stone-600 text-lg leading-relaxed">
-                    We provide full-service arboriculture, not just "cutting down trees." Whether you are near {data.landmarks[1]} or the outskirts of town, our crew arrives on time, respects your property, and cleans up every twig.
+                    We provide full-service arboriculture, not just &quot;cutting down trees.&quot; Whether you are near {data.landmarks[1]} or the outskirts of town, our crew arrives on time, respects your property, and cleans up every twig.
                  </p>
               </div>
 

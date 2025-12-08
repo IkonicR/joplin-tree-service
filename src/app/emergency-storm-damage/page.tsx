@@ -1,6 +1,7 @@
 import { WithContext, Service } from 'schema-dts';
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
@@ -41,11 +42,14 @@ export default function EmergencyPage() {
       <main className="flex-1">
         {/* HERO */}
         <section className="relative h-[70vh] min-h-[500px] flex items-center justify-center overflow-hidden bg-stone-900">
-          <div 
-            className="absolute inset-0 z-0 bg-[url('/assets/joplin-emergency-hero-page.jpg')] bg-cover bg-center"
-          >
-             <div className="absolute inset-0 bg-red-950/80" />
-          </div>
+          <Image
+            src="/assets/joplin-emergency-hero-page.jpg"
+            alt="Emergency storm damage tree removal in Joplin"
+            fill
+            className="object-cover opacity-60"
+            priority
+          />
+          <div className="absolute inset-0 bg-red-950/40" />
           
           <div className="container relative z-10 px-6 mx-auto text-center">
              <div className="inline-flex items-center gap-2 border border-red-500/50 bg-red-900/30 backdrop-blur-sm px-4 py-2 rounded-sm text-red-200 text-sm font-bold tracking-widest uppercase mb-8 animate-pulse">

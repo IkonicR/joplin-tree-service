@@ -1,6 +1,7 @@
 import { WithContext, Service } from 'schema-dts';
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
@@ -41,11 +42,14 @@ export default function StumpGrindingPage() {
       <main className="flex-1">
         {/* HERO */}
         <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden bg-stone-900">
-          <div 
-            className="absolute inset-0 z-0 bg-[url('/assets/joplin-stump-grinding-machine.jpg')] bg-cover bg-center"
-          >
-             <div className="absolute inset-0 bg-stone-900/80" />
-          </div>
+          <Image
+            src="/assets/joplin-stump-grinding-machine.jpg"
+            alt="Stump grinding machine removing a tree stump in Joplin"
+            fill
+            className="object-cover opacity-60"
+            priority
+          />
+          <div className="absolute inset-0 bg-stone-900/40" />
           
           <div className="container relative z-10 px-6 mx-auto text-center">
              <div className="inline-flex items-center gap-2 border border-white/20 bg-white/5 backdrop-blur-sm px-4 py-2 rounded-sm text-stone-200 text-sm font-medium tracking-widest uppercase mb-8">
@@ -68,12 +72,12 @@ export default function StumpGrindingPage() {
         {/* THE PROCESS (Checkerboard) */}
         <section className="py-0">
            <div className="grid md:grid-cols-2 min-h-[600px]">
-              <div className="bg-stone-100 flex items-center justify-center p-12 lg:p-24">
+              <div className="bg-stone-100 flex items-center justify-center p-12 lg:p-24 order-2 md:order-1">
                  <div className="max-w-lg">
                     <div className="text-orange-600 font-bold uppercase tracking-widest mb-4 text-sm">Why Remove It?</div>
                     <h2 className="text-4xl md:text-5xl font-black text-stone-900 mb-6 leading-tight">STOP THE ROT</h2>
                     <p className="text-lg text-stone-600 mb-8 leading-relaxed">
-                       A rotting stump is a magnet for pests. Termites, carpenter ants, and beetles use old stumps as a "beachhead" to eventually invade your home.
+                       A rotting stump is a magnet for pests. Termites, carpenter ants, and beetles use old stumps as a &quot;beachhead&quot; to eventually invade your home.
                     </p>
                     <ul className="space-y-4">
                        <li className="flex items-center gap-3">
@@ -91,7 +95,14 @@ export default function StumpGrindingPage() {
                     </ul>
                  </div>
               </div>
-              <div className="bg-[url('/assets/joplin-stump-grinding-machine.jpg')] bg-cover bg-center min-h-[400px]" />
+              <div className="relative min-h-[400px] order-1 md:order-2">
+                 <Image
+                   src="/assets/joplin-stump-grinding-machine.jpg"
+                   alt="Close up of stump grinder teeth removing a stump"
+                   fill
+                   className="object-cover"
+                 />
+              </div>
            </div>
         </section>
 

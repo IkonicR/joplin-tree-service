@@ -1,6 +1,7 @@
 import { WithContext, Service } from 'schema-dts';
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
@@ -41,11 +42,14 @@ export default function TreeTrimmingPage() {
       <main className="flex-1">
         {/* HERO */}
         <section className="relative h-[70vh] min-h-[500px] flex items-center justify-center overflow-hidden bg-stone-900">
-          <div 
-            className="absolute inset-0 z-0 bg-[url('/assets/joplin-trimming-hero-page.jpg')] bg-cover bg-center"
-          >
-             <div className="absolute inset-0 bg-stone-900/80" />
-          </div>
+          <Image
+            src="/assets/joplin-trimming-hero-page.jpg"
+            alt="Professional tree trimming and pruning in Joplin"
+            fill
+            className="object-cover opacity-60"
+            priority
+          />
+          <div className="absolute inset-0 bg-stone-900/40" />
           
           <div className="container relative z-10 px-6 mx-auto text-center">
              <div className="inline-flex items-center gap-2 border border-white/20 bg-white/5 backdrop-blur-sm px-4 py-2 rounded-sm text-stone-200 text-sm font-medium tracking-widest uppercase mb-8">
@@ -55,7 +59,7 @@ export default function TreeTrimmingPage() {
               Canopy <br /> Engineering
             </h1>
             <p className="text-xl text-stone-300 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
-              We don't just "cut branches." We engineer the tree's structure to withstand Joplin's winds, extending its life and protecting your home.
+              We don&apos;t just &quot;cut branches.&quot; We engineer the tree&apos;s structure to withstand Joplin&apos;s winds, extending its life and protecting your home.
             </p>
             <Button asChild size="lg" className="bg-orange-600 hover:bg-orange-700 text-white text-lg font-bold h-16 px-10 rounded-none uppercase tracking-wider">
               <Link href={PHONE_HREF}>
@@ -68,12 +72,12 @@ export default function TreeTrimmingPage() {
         {/* THE METHOD (Checkerboard) */}
         <section className="py-0">
            <div className="grid md:grid-cols-2 min-h-[600px]">
-              <div className="bg-white flex items-center justify-center p-12 lg:p-24">
+              <div className="bg-white flex items-center justify-center p-12 lg:p-24 order-2 md:order-1">
                  <div className="max-w-lg">
                     <div className="text-green-600 font-bold uppercase tracking-widest mb-4 text-sm">The Science</div>
                     <h2 className="text-4xl md:text-5xl font-black text-stone-900 mb-6 leading-tight">WHY WE PRUNE</h2>
                     <p className="text-lg text-stone-600 mb-8 leading-relaxed">
-                       Trees in the forest grow tall and lean. Trees in your yard grow wide and heavy. Without pruning, they become "sails" that catch the wind, leading to failure.
+                       Trees in the forest grow tall and lean. Trees in your yard grow wide and heavy. Without pruning, they become &quot;sails&quot; that catch the wind, leading to failure.
                     </p>
                     <div className="space-y-6">
                        <div>
@@ -97,7 +101,14 @@ export default function TreeTrimmingPage() {
                     </div>
                  </div>
               </div>
-              <div className="bg-[url('/assets/joplin-trimming-detail.jpg')] bg-cover bg-center min-h-[400px]" />
+              <div className="relative min-h-[400px] order-1 md:order-2">
+                <Image
+                  src="/assets/joplin-trimming-detail.jpg"
+                  alt="Detailed tree pruning cut showing proper healing"
+                  fill
+                  className="object-cover"
+                />
+              </div>
            </div>
         </section>
 
@@ -107,7 +118,7 @@ export default function TreeTrimmingPage() {
               <AlertTriangle className="w-16 h-16 text-red-500 mx-auto mb-6" />
               <h2 className="text-3xl md:text-4xl font-black mb-6 uppercase">We Do NOT Top Trees</h2>
               <p className="text-xl text-stone-300 mb-8 leading-relaxed">
-                 "Topping" (cutting the top off a tree) is an outdated, harmful practice that creates weak regrowth and eventually kills the tree. If a company offers to top your tree, fire them. We only use ISA-approved reduction cuts.
+                 &quot;Topping&quot; (cutting the top off a tree) is an outdated, harmful practice that creates weak regrowth and eventually kills the tree. If a company offers to top your tree, fire them. We only use ISA-approved reduction cuts.
               </p>
            </div>
         </section>

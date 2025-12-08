@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google';
+import { GoogleTagManager } from '@next/third-parties/google';
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import { ChatWidget } from "@/components/chat-widget";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,7 +31,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Joplin Tree Service Team" }],
   creator: "Joplin Tree Service",
   publisher: "Joplin Tree Service",
-  metadataBase: new URL("https://joplinmotreeservice.com"),
+  metadataBase: new URL("https://joplintreeservice.com"),
   alternates: {
     canonical: "/",
   },
@@ -40,7 +39,7 @@ export const metadata: Metadata = {
     title: "Joplin Tree Service | Fast & Affordable Tree Care",
     description:
       "Expert tree removal and trimming in Joplin, MO. 24/7 Emergency response. Licensed and Insured. Call for a free estimate.",
-    url: "https://joplinmotreeservice.com",
+    url: "https://joplintreeservice.com",
     siteName: "Joplin Tree Service",
     locale: "en_US",
     type: "website",
@@ -71,7 +70,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <GoogleTagManager gtmId="GTM-5RDQFS6B" />
-      <GoogleAnalytics gaId="G-P1D65SCQDD" />
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
@@ -79,16 +77,7 @@ export default function RootLayout({
           geistMono.variable
         )}
       >
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-5RDQFS6B"
-            height="0"
-            width="0"
-            style={{ display: 'none', visibility: 'hidden' }}
-          />
-        </noscript>
         {children}
-        <ChatWidget />
       </body>
     </html>
   );

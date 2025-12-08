@@ -21,6 +21,7 @@ import { Phone, CheckCircle2, ArrowRight, Star, ShieldCheck, MapPin, Clock, Tree
 import { PHONE_NUMBER, PHONE_HREF, COMPANY_NAME, ADDRESS } from "@/lib/constants";
 import { WithContext, LocalBusiness } from "schema-dts";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const businessSchema: any = {
   "@context": "https://schema.org",
   "@graph": [
@@ -207,7 +208,7 @@ export default function Home() {
         </div>
 
         {/* QUICK SERVICE MENU (Navigation Fix) */}
-        <section className="py-20 bg-white">
+        <section id="services" className="py-20 bg-white">
            <div className="container mx-auto px-6">
               <div className="text-center mb-12">
                  <h2 className="text-stone-900 font-black text-3xl uppercase tracking-tight">Our Core Services</h2>
@@ -274,7 +275,7 @@ export default function Home() {
                     <div className="text-orange-600 font-bold uppercase tracking-widest mb-4 text-sm">Dangerous & Complex</div>
                     <h2 className="text-4xl md:text-5xl font-black text-stone-900 mb-6 leading-tight">SURGICAL TREE REMOVAL</h2>
                     <p className="text-lg text-stone-600 mb-8 leading-relaxed">
-                       When a 100-year-old Oak is leaning over your master bedroom, you don't need a "guy with a chainsaw." You need an engineered takedown. We use cranes and rigging to dismantle trees piece by piece, ensuring zero impact on your home or lawn.
+                       When a 100-year-old Oak is leaning over your master bedroom, you don&apos;t need a &quot;guy with a chainsaw.&quot; You need an engineered takedown. We use cranes and rigging to dismantle trees piece by piece, ensuring zero impact on your home or lawn.
                     </p>
                     <ul className="space-y-3 mb-8">
                        <li className="flex items-center gap-3 text-stone-700 font-medium">
@@ -305,7 +306,7 @@ export default function Home() {
                     <div className="text-green-600 font-bold uppercase tracking-widest mb-4 text-sm">Health & Longevity</div>
                     <h2 className="text-4xl md:text-5xl font-black text-stone-900 mb-6 leading-tight">STRUCTURAL PRUNING</h2>
                     <p className="text-lg text-stone-600 mb-8 leading-relaxed">
-                       Joplin winds are unforgiving. We don't just cut branches; we engineer the canopy. By "thinning" the crown, we allow wind to pass through the tree rather than pushing against it, saving your trees from storm damage.
+                       Joplin winds are unforgiving. We don&apos;t just cut branches; we engineer the canopy. By &quot;thinning&quot; the crown, we allow wind to pass through the tree rather than pushing against it, saving your trees from storm damage.
                     </p>
                     <ul className="space-y-3 mb-8">
                        <li className="flex items-center gap-3 text-stone-700 font-medium">
@@ -396,7 +397,7 @@ export default function Home() {
                     <h2 className="text-4xl md:text-5xl font-black text-white mb-6 leading-none">ROOTED IN <br /> JOPLIN SOIL</h2>
                  </div>
                  <p className="text-xl text-stone-400 leading-relaxed">
-                    Joplin isn't just any territory. The rocky chert soil of Jasper County and the post-2011 landscape present unique challenges. From the historic Elms in <strong>Murphysburg</strong> to the wind-swept Oaks of <strong>Webb City</strong>, we understand the specific care your trees need to survive our storms.
+                    Joplin isn&apos;t just any territory. The rocky chert soil of Jasper County and the post-2011 landscape present unique challenges. From the historic Elms in <strong>Murphysburg</strong> to the wind-swept Oaks of <strong>Webb City</strong>, we understand the specific care your trees need to survive our storms.
                  </p>
               </div>
               
@@ -442,14 +443,14 @@ export default function Home() {
                  <AccordionItem value="item-3" className="border-b-stone-200">
                     <AccordionTrigger className="text-lg font-bold text-stone-900 hover:text-green-800 text-left">Do you haul away the debris and wood?</AccordionTrigger>
                     <AccordionContent className="text-stone-600 text-base leading-relaxed p-4 bg-stone-50">
-                       Yes. Our standard quote includes "cleanup and haul-away." We chip the brush, remove the logs, and rake the area clean. Your yard will often look better than when we arrived. If you prefer to keep the wood for firewood, let us know, and we can stack it for a reduced rate.
+                       Yes. Our standard quote includes &quot;cleanup and haul-away.&quot; We chip the brush, remove the logs, and rake the area clean. Your yard will often look better than when we arrived. If you prefer to keep the wood for firewood, let us know, and we can stack it for a reduced rate.
                     </AccordionContent>
                  </AccordionItem>
 
                  <AccordionItem value="item-4" className="border-b-stone-200">
                     <AccordionTrigger className="text-lg font-bold text-stone-900 hover:text-green-800 text-left">Do I need a permit for tree removal in Joplin?</AccordionTrigger>
                     <AccordionContent className="text-stone-600 text-base leading-relaxed p-4 bg-stone-50">
-                       Generally, no permit is needed for trees on private property. However, if the tree is in the "Right of Way" (between the sidewalk and street) or you are in a historic district, city approval may be required. We handle this check for you to ensure compliance.
+                       Generally, no permit is needed for trees on private property. However, if the tree is in the &quot;Right of Way&quot; (between the sidewalk and street) or you are in a historic district, city approval may be required. We handle this check for you to ensure compliance.
                     </AccordionContent>
                  </AccordionItem>
 

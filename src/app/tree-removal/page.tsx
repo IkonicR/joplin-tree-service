@@ -1,6 +1,7 @@
 import { WithContext, LocalBusiness } from 'schema-dts';
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
@@ -22,7 +23,7 @@ export default function TreeRemovalPage() {
     '@context': 'https://schema.org',
     '@type': 'HomeAndConstructionBusiness',
     name: COMPANY_NAME,
-    url: 'https://joplintreeservice.com',
+    url: 'https://joplinmotreeservice.com',
     telephone: PHONE_NUMBER,
     address: {
       '@type': 'PostalAddress',
@@ -48,11 +49,14 @@ export default function TreeRemovalPage() {
       <main className="flex-1">
         {/* HERO SECTION */}
         <section className="relative h-[70vh] min-h-[500px] flex items-center justify-center overflow-hidden bg-stone-900">
-          <div 
-            className="absolute inset-0 z-0 bg-[url('/assets/joplin-removal-hero-page.jpg')] bg-cover bg-center"
-          >
-             <div className="absolute inset-0 bg-stone-900/80" />
-          </div>
+          <Image
+            src="/assets/joplin-removal-hero-page.jpg"
+            alt="Large oak tree removal in Joplin MO using crane and rigging"
+            fill
+            className="object-cover opacity-60"
+            priority
+          />
+          <div className="absolute inset-0 bg-stone-900/40" />
           
           <div className="container relative z-10 px-6 mx-auto text-center">
             <div className="inline-flex items-center gap-2 border border-white/20 bg-white/5 backdrop-blur-sm px-4 py-2 rounded-sm text-stone-200 text-sm font-medium tracking-widest uppercase mb-8">
@@ -75,27 +79,34 @@ export default function TreeRemovalPage() {
         {/* THE PROBLEM (Checkerboard) */}
         <section className="py-0">
            <div className="grid md:grid-cols-2 min-h-[600px]">
-              <div className="bg-stone-100 flex items-center justify-center p-12 lg:p-24">
+              <div className="bg-stone-100 flex items-center justify-center p-12 lg:p-24 order-2 md:order-1">
                  <div className="max-w-lg">
                     <div className="text-orange-600 font-bold uppercase tracking-widest mb-4 text-sm">The Risk</div>
                     <h2 className="text-4xl md:text-5xl font-black text-stone-900 mb-6 leading-tight">THE DANGER OF WAITING</h2>
                     <p className="text-lg text-stone-600 mb-8 leading-relaxed">
-                       A dead tree isn't just ugly; it's a ticking time bomb. In Missouri, one ice storm or high-wind event can turn a standing dead Oak into a roof-crushing liability.
+                       A dead tree isn&apos;t just ugly; it&apos;s a ticking time bomb. In Missouri, one ice storm or high-wind event can turn a standing dead Oak into a roof-crushing liability.
                     </p>
                     <p className="text-lg text-stone-600 mb-8 leading-relaxed">
-                       We see it every year: homeowners wait until "next season," only to pay 10x more for emergency removal after it falls on their garage.
+                       We see it every year: homeowners wait until &quot;next season,&quot; only to pay 10x more for emergency removal after it falls on their garage.
                     </p>
                     <div className="p-6 bg-white border-l-4 border-orange-500 shadow-sm">
                        <h3 className="font-bold text-lg text-stone-900 mb-2">Visual Warning Signs:</h3>
                        <ul className="space-y-2 text-stone-600 text-sm">
                           <li>• Deep vertical cracks in the trunk</li>
                           <li>• Fungus (mushrooms) growing at the base</li>
-                          <li>• Dead branches in the upper canopy ("Stagheading")</li>
+                          <li>• Dead branches in the upper canopy (&quot;Stagheading&quot;)</li>
                        </ul>
                     </div>
                  </div>
               </div>
-              <div className="bg-[url('/assets/joplin-removal-danger.jpg')] bg-cover bg-center min-h-[400px]" />
+              <div className="relative min-h-[400px] order-1 md:order-2">
+                <Image
+                  src="/assets/joplin-removal-danger.jpg"
+                  alt="Hazardous leaning tree near a house in Joplin"
+                  fill
+                  className="object-cover"
+                />
+              </div>
            </div>
         </section>
 
@@ -128,7 +139,7 @@ export default function TreeRemovalPage() {
                     <Zap className="w-10 h-10 text-green-500 mb-6" />
                     <h3 className="text-xl font-bold mb-4 uppercase tracking-wide">Targets</h3>
                     <p className="text-stone-400 leading-relaxed">
-                       "Targets" are things under the tree (pool, house, power line). High-risk targets require slower, more technical rigging.
+                       &quot;Targets&quot; are things under the tree (pool, house, power line). High-risk targets require slower, more technical rigging.
                     </p>
                  </div>
 
@@ -147,9 +158,9 @@ export default function TreeRemovalPage() {
         {/* CTA */}
         <section className="py-24 bg-green-950 text-center">
            <div className="container mx-auto px-6">
-              <h2 className="text-3xl md:text-5xl font-black text-white mb-8 uppercase">Don't risk your roof.</h2>
+              <h2 className="text-3xl md:text-5xl font-black text-white mb-8 uppercase">Don&apos;t risk your roof.</h2>
               <p className="text-xl text-green-200/80 mb-10 max-w-2xl mx-auto">
-                 We provide free safety assessments. We'll tell you honestly if it needs to go or if it can be saved.
+                 We provide free safety assessments. We&apos;ll tell you honestly if it needs to go or if it can be saved.
               </p>
               <Button asChild size="lg" className="bg-orange-600 hover:bg-orange-700 text-white text-lg font-bold h-16 px-12 rounded-none uppercase tracking-widest shadow-xl">
                  <Link href={PHONE_HREF}>

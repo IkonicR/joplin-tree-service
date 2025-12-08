@@ -18,7 +18,7 @@ export default function PrivacyPage() {
           <p>Last updated: {new Date().toLocaleDateString()}</p>
           
           <h3>1. Introduction</h3>
-          <p>{COMPANY_NAME} ("we," "our," or "us") respects your privacy. This Privacy Policy explains how we collect, use, and protect your information when you visit our website or use our services.</p>
+          <p>{COMPANY_NAME} (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) respects your privacy. This Privacy Policy explains how we collect, use, and protect your information when you visit our website or use our services.</p>
 
           <h3>2. Information We Collect</h3>
           <p>We collect information you provide directly to us, such as when you request a quote or contact us. This includes:</p>

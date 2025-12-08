@@ -18,7 +18,7 @@ export function Footer() {
             <span className="font-black text-2xl text-white tracking-tight uppercase">{COMPANY_NAME}</span>
           </div>
           <p className="text-sm leading-relaxed text-stone-400">
-            Joplin's premier tree care specialists. We combine heavy industrial capability with arboricultural science to protect your property and ecosystem.
+            Joplin&apos;s premier tree care specialists. We combine heavy industrial capability with arboricultural science to protect your property and ecosystem.
           </p>
           <div className="flex gap-4 pt-2">
             <Link href="#" className="bg-stone-900 p-2 rounded-full hover:bg-green-700 hover:text-white transition-colors">
