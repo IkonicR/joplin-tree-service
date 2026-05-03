@@ -1,68 +1,61 @@
 # Master Tracking & Handover To-Do List
 
 **Project:** Joplin Tree Service (Rank & Rent)
-**Status:** Code Complete / Deployment Ready
-**Date:** November 21, 2025
+**Status:** ✅ LIVE & TRACKING
+**Last Updated:** January 15, 2026
 
 ---
 
-## 1. Domain & Hosting (The Launch)
-*   [ ] **Buy Domain:** Purchase `joplintreeservice.com` (or similar) from Namecheap/GoDaddy.
-*   [ ] **Connect to Vercel:**
-    *   Go to Vercel Dashboard -> Settings -> Domains.
-    *   Add your new domain.
-    *   Update DNS records (A Record / CNAME) at your registrar as Vercel instructs.
+## Current Tracking Status
 
-## 2. Google Tracking Setup (The Data)
-*Since the code (`GTM-5RDQFS6B`) is already installed, you just need to configure the dashboard.*
+| Service | ID | Status |
+|---------|-----|--------|
+| Google Analytics 4 | `G-P1D65SCQDD` | ✅ Active |
+| Google Tag Manager | `GTM-5RDQFS6B` | ✅ Active |
+| Google Search Console | Verified | ✅ Sitemap submitted |
 
-### A. Google Analytics 4 (GA4)
-*   [ ] Go to [analytics.google.com](https://analytics.google.com).
-*   [ ] Create a new Property: "Joplin Tree Service".
-*   [ ] Go to **Admin > Data Streams**.
-*   [ ] Copy the **Measurement ID** (`G-XXXXXXXXXX`).
+### Conversion Events (Code-Based)
+Conversion tracking is handled via `src/lib/analytics.ts`. It sends GA4 events through `gtag` and also pushes the same event names to `dataLayer` for GTM visibility.
 
-### B. Google Tag Manager (GTM) Configuration
-*   [ ] Go to [tagmanager.google.com](https://tagmanager.google.com).
-*   [ ] Open the "Joplin Tree Service" container.
-*   [ ] **Create Tag:**
-    *   Click **Tags > New**.
-    *   Type: **Google Analytics: Google Tag**.
-    *   Tag ID: Paste your `G-XXXXXXXXXX`.
-    *   Trigger: **All Pages**.
-    *   Save as "GA4 Config".
-*   [ ] **Create Phone Call Trigger:**
-    *   Click **Triggers > New**.
-    *   Type: **Just Links**.
-    *   Select **"Some Link Clicks"**.
-    *   Condition: `Click URL` contains `tel:`.
-    *   Save as "Phone Call Trigger".
-*   [ ] **Create Phone Call Event:**
-    *   Click **Tags > New**.
-    *   Type: **GA4 Event**.
-    *   Measurement ID: Paste `G-XXXXXXXXXX`.
-    *   Event Name: `generate_lead`.
-    *   Trigger: Select "Phone Call Trigger".
-    *   Save.
-*   [ ] **PUBLISH:** Click the blue "Submit" button to make it live.
-
-## 3. Google Search Console (The Ranking)
-*   [ ] Go to [search.google.com](https://search.google.com/search-console).
-*   [ ] Add Property -> Enter your Domain (`joplintreeservice.com`).
-*   [ ] Verify ownership (DNS method is easiest since you just bought the domain).
-*   [ ] **Submit Sitemap:**
-    *   Go to "Sitemaps" on the left.
-    *   Enter: `https://joplintreeservice.com/sitemap.xml`
-    *   Click Submit. (This tells Google to index your site instantly).
-
-## 4. Google Business Profile (The Map Pack)
-*   [ ] Create a GBP profile for "Joplin Tree Service" (if you have a verification address).
-*   [ ] Add the website URL.
-*   [ ] Upload the "Real" photos (Hero, Truck, etc.) to the profile.
+| Event Name | Trigger | File |
+|------------|---------|------|
+| `phone_click` | Any phone link clicked | `PhoneLink` component |
+| `generate_lead` | Quote form submitted | `quote-form.tsx` |
+| `chat_widget_open` | Chat widget opened | `chat-widget.tsx` |
 
 ---
 
-**Code Handover Notes:**
-*   **Images:** Located in `public/assets/`.
-*   **Content:** Edit text in `src/app/page.tsx` (Home) or `src/app/[service]/page.tsx`.
-*   **Phone Number:** Change globally in `src/lib/constants.ts`.
+## 1. Domain & Hosting ✅ COMPLETE
+- [x] Domain purchased: `joplinmotreeservice.com`
+- [x] Connected to Vercel
+
+## 2. Google Analytics ✅ COMPLETE
+- [x] GA4 Property created
+- [x] Measurement ID installed in `layout.tsx`
+- [x] Conversion events firing via code
+
+## 3. Google Search Console ✅ COMPLETE
+- [x] Property verified
+- [x] Sitemap submitted (31 URLs)
+
+## 4. Google Business Profile
+- [ ] Create GBP profile (requires verification address from renter)
+- [ ] Add website URL
+- [ ] Upload photos
+
+---
+
+## Future Enhancements (Optional)
+- [ ] **Microsoft Clarity** — Free heatmaps & session recordings. Just need to add script to `layout.tsx`.
+- [ ] **Scroll Depth Tracking** — Already prepped in `analytics.ts`, just needs implementation.
+
+---
+
+## Code Reference
+
+| Task | How to Do It |
+|------|--------------|
+| Change phone number | Edit `src/lib/constants.ts` |
+| Add new tracked event | Use `trackEvent()` from `src/lib/analytics.ts` |
+| Edit page content | Modify files in `src/app/` |
+| Images | Located in `public/assets/` |

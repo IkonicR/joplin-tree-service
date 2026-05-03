@@ -4,7 +4,6 @@ import { Metadata } from 'next';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
 import { getSortedPostsData } from '@/lib/blog';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Calendar } from 'lucide-react';
 
 export const metadata: Metadata = {

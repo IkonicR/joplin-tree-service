@@ -1,14 +1,14 @@
 import { WithContext, Service } from 'schema-dts';
 import { Metadata } from 'next';
-import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
 import { RelatedServices } from '@/components/related-services';
 import { JsonLd } from '@/components/json-ld';
-import { Phone, Shield, Scissors, Sprout, Wind, ArrowRight, CheckCircle2, AlertTriangle } from 'lucide-react';
-import { COMPANY_NAME, PHONE_HREF, PHONE_NUMBER } from '@/lib/constants';
+import { Phone, Shield, Scissors, Sprout, Wind, ArrowRight, AlertTriangle } from 'lucide-react';
+import { COMPANY_NAME, PHONE_HREF } from '@/lib/constants';
+import { PhoneLink } from '@/components/phone-link';
 
 export const metadata: Metadata = {
   title: 'Tree Trimming & Pruning Joplin | Storm Prevention',
@@ -50,9 +50,9 @@ export default function TreeTrimmingPage() {
             priority
           />
           <div className="absolute inset-0 bg-stone-900/40" />
-          
-          <div className="container relative z-10 px-6 mx-auto text-center">
-             <div className="inline-flex items-center gap-2 border border-white/20 bg-white/5 backdrop-blur-sm px-4 py-2 rounded-sm text-stone-200 text-sm font-medium tracking-widest uppercase mb-8">
+
+          <div className="container relative z-10 px-6 mx-auto text-center pt-44 md:pt-24">
+            <div className="inline-flex items-center gap-2 border border-white/20 bg-white/5 backdrop-blur-sm px-4 py-2 rounded-sm text-stone-200 text-sm font-medium tracking-widest uppercase mb-8">
               <Scissors className="w-4 h-4 text-green-500" /> Health & Aesthetics
             </div>
             <h1 className="text-5xl md:text-7xl font-black tracking-tighter text-white mb-6 uppercase">
@@ -62,90 +62,90 @@ export default function TreeTrimmingPage() {
               We don&apos;t just &quot;cut branches.&quot; We engineer the tree&apos;s structure to withstand Joplin&apos;s winds, extending its life and protecting your home.
             </p>
             <Button asChild size="lg" className="bg-orange-600 hover:bg-orange-700 text-white text-lg font-bold h-16 px-10 rounded-none uppercase tracking-wider">
-              <Link href={PHONE_HREF}>
+              <PhoneLink href={PHONE_HREF} className="flex items-center">
                 Schedule Trimming <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
+              </PhoneLink>
             </Button>
           </div>
         </section>
 
         {/* THE METHOD (Checkerboard) */}
         <section className="py-0">
-           <div className="grid md:grid-cols-2 min-h-[600px]">
-              <div className="bg-white flex items-center justify-center p-12 lg:p-24 order-2 md:order-1">
-                 <div className="max-w-lg">
-                    <div className="text-green-600 font-bold uppercase tracking-widest mb-4 text-sm">The Science</div>
-                    <h2 className="text-4xl md:text-5xl font-black text-stone-900 mb-6 leading-tight">WHY WE PRUNE</h2>
-                    <p className="text-lg text-stone-600 mb-8 leading-relaxed">
-                       Trees in the forest grow tall and lean. Trees in your yard grow wide and heavy. Without pruning, they become &quot;sails&quot; that catch the wind, leading to failure.
-                    </p>
-                    <div className="space-y-6">
-                       <div>
-                          <h3 className="font-bold text-xl text-stone-900 mb-2 flex items-center gap-2">
-                             <Wind className="w-6 h-6 text-green-600" /> Crown Thinning
-                          </h3>
-                          <p className="text-stone-600 text-sm">Selectively removing inner branches to allow wind to flow <em>through</em> the tree, reducing storm stress by up to 40%.</p>
-                       </div>
-                       <div>
-                          <h3 className="font-bold text-xl text-stone-900 mb-2 flex items-center gap-2">
-                             <Sprout className="w-6 h-6 text-green-600" /> Deadwooding
-                          </h3>
-                          <p className="text-stone-600 text-sm">Removing dead limbs that attract pests (like borers) and provide an entry point for rot and disease.</p>
-                       </div>
-                       <div>
-                          <h3 className="font-bold text-xl text-stone-900 mb-2 flex items-center gap-2">
-                             <Shield className="w-6 h-6 text-green-600" /> Clearance
-                          </h3>
-                          <p className="text-stone-600 text-sm">Creating safe distance between tree limbs and your roof, siding, or service lines to prevent abrasion and rodent access.</p>
-                       </div>
-                    </div>
-                 </div>
+          <div className="grid md:grid-cols-2 min-h-[600px]">
+            <div className="bg-white flex items-center justify-center p-12 lg:p-24 order-2 md:order-1">
+              <div className="max-w-lg">
+                <div className="text-green-600 font-bold uppercase tracking-widest mb-4 text-sm">The Science</div>
+                <h2 className="text-4xl md:text-5xl font-black text-stone-900 mb-6 leading-tight">WHY WE PRUNE</h2>
+                <p className="text-lg text-stone-600 mb-8 leading-relaxed">
+                  Trees in the forest grow tall and lean. Trees in your yard grow wide and heavy. Without pruning, they become &quot;sails&quot; that catch the wind, leading to failure.
+                </p>
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="font-bold text-xl text-stone-900 mb-2 flex items-center gap-2">
+                      <Wind className="w-6 h-6 text-green-600" /> Crown Thinning
+                    </h3>
+                    <p className="text-stone-600 text-sm">Selectively removing inner branches to allow wind to flow <em>through</em> the tree, reducing storm stress by up to 40%.</p>
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-xl text-stone-900 mb-2 flex items-center gap-2">
+                      <Sprout className="w-6 h-6 text-green-600" /> Deadwooding
+                    </h3>
+                    <p className="text-stone-600 text-sm">Removing dead limbs that attract pests (like borers) and provide an entry point for rot and disease.</p>
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-xl text-stone-900 mb-2 flex items-center gap-2">
+                      <Shield className="w-6 h-6 text-green-600" /> Clearance
+                    </h3>
+                    <p className="text-stone-600 text-sm">Creating safe distance between tree limbs and your roof, siding, or service lines to prevent abrasion and rodent access.</p>
+                  </div>
+                </div>
               </div>
-              <div className="relative min-h-[400px] order-1 md:order-2">
-                <Image
-                  src="/assets/joplin-trimming-detail.jpg"
-                  alt="Detailed tree pruning cut showing proper healing"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-           </div>
+            </div>
+            <div className="relative min-h-[400px] order-1 md:order-2">
+              <Image
+                src="/assets/joplin-trimming-detail.jpg"
+                alt="Detailed tree pruning cut showing proper healing"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
         </section>
 
         {/* NO TOPPING WARNING */}
         <section className="bg-stone-900 text-white py-24">
-           <div className="container mx-auto px-6 text-center max-w-3xl">
-              <AlertTriangle className="w-16 h-16 text-red-500 mx-auto mb-6" />
-              <h2 className="text-3xl md:text-4xl font-black mb-6 uppercase">We Do NOT Top Trees</h2>
-              <p className="text-xl text-stone-300 mb-8 leading-relaxed">
-                 &quot;Topping&quot; (cutting the top off a tree) is an outdated, harmful practice that creates weak regrowth and eventually kills the tree. If a company offers to top your tree, fire them. We only use ISA-approved reduction cuts.
-              </p>
-           </div>
+          <div className="container mx-auto px-6 text-center max-w-3xl">
+            <AlertTriangle className="w-16 h-16 text-red-500 mx-auto mb-6" />
+            <h2 className="text-3xl md:text-4xl font-black mb-6 uppercase">We Do NOT Top Trees</h2>
+            <p className="text-xl text-stone-300 mb-8 leading-relaxed">
+              &quot;Topping&quot; (cutting the top off a tree) is an outdated, harmful practice that creates weak regrowth and eventually kills the tree. If a company offers to top your tree, fire them. We only use ISA-approved reduction cuts.
+            </p>
+          </div>
         </section>
 
         {/* CTA */}
         <section className="py-24 bg-white text-center border-t border-stone-100">
-           <div className="container mx-auto px-6">
-              <h2 className="text-3xl md:text-5xl font-black text-stone-900 mb-8 uppercase">Beautify Your Landscape</h2>
-              <Button asChild size="lg" className="bg-green-600 hover:bg-green-700 text-white text-lg font-bold h-16 px-12 rounded-none uppercase tracking-widest shadow-xl">
-                 <Link href={PHONE_HREF}>
-                    Get a Trimming Quote
-                 </Link>
-              </Button>
-           </div>
+          <div className="container mx-auto px-6">
+            <h2 className="text-3xl md:text-5xl font-black text-stone-900 mb-8 uppercase">Beautify Your Landscape</h2>
+            <Button asChild size="lg" className="bg-green-600 hover:bg-green-700 text-white text-lg font-bold h-16 px-12 rounded-none uppercase tracking-widest shadow-xl">
+              <PhoneLink href={PHONE_HREF}>
+                Get a Trimming Quote
+              </PhoneLink>
+            </Button>
+          </div>
         </section>
         <RelatedServices current="trimming" />
       </main>
 
       <Footer />
-      
+
       {/* Sticky Mobile Footer */}
       <div className="md:hidden fixed bottom-0 left-0 right-0 z-50">
         <Button asChild className="w-full bg-orange-600 hover:bg-orange-700 text-white font-bold h-16 text-lg rounded-none uppercase tracking-wider shadow-[0_-4px_10px_rgba(0,0,0,0.3)]">
-          <Link href={PHONE_HREF}>
+          <PhoneLink href={PHONE_HREF} className="flex items-center justify-center">
             <Phone className="mr-3 h-5 w-5" />
             Call for Estimate
-          </Link>
+          </PhoneLink>
         </Button>
       </div>
     </div>
